@@ -29,7 +29,7 @@ function twitterfinderApi() {
     //Create Twitter client
     var Twitter = require('twitter-node-client').Twitter;
 
-    
+
     var config = {
         'consumerKey': process.env.CONSUMERKEY || '',
         'consumerSecret': process.env.CONSUMERSECRET || '',
@@ -42,7 +42,7 @@ function twitterfinderApi() {
     var twitter = new Twitter(config);
 
     //Create routes and controllers
-    require('./routes')(server, twitter, appConfig, log);
+    require('./routes')(server, restify, twitter, appConfig, log);
 
     //Init server
     server.listen(port, function (err) {
