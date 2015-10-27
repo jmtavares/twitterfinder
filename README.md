@@ -2,7 +2,7 @@
 
 ## Description
 
-This project aims to search within your personal tweets.
+This project aims to search tweets within your personal account.
 
 It uses ES6 both on server ([express](http://expressjs.com/)) and on client ([reactjs](https://facebook.github.io/react/)).
 

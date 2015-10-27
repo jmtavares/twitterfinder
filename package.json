@@ -1,5 +1,5 @@
 {
-  "name": "twitterfinder-api",
+  "name": "twitterfinder",
   "version": "1.0.0",
   "description": "",
   "main": "src/server.js",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yconoclast/twitterfinder-api.git"
+    "url": "git+https://github.com/yconoclast/twitterfinder.git"
   },
   "author": "Jose Tavares <josetavares00@gmail.com> (http://yconoclast.github.io/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/yconoclast/twitterfinder-api/issues"
+    "url": "https://github.com/yconoclast/twitterfinder/issues"
   },
-  "homepage": "https://github.com/yconoclast/twitterfinder-api#readme",
+  "homepage": "https://github.com/yconoclast/twitterfinder#readme",
   "dependencies": {
     "babel": "^5.8.29",
     "bunyan": "^1.5.1",
