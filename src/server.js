@@ -7,7 +7,7 @@ function twitterfinderApi() {
     var appConfig = require('./config/config.json');
     var bunyan = require('bunyan');
     var compress = require('compression');
-    var port = process.env.PORT || 3000;
+    var port = process.env.PORT || 8080;
 
     //Initialize logger instance
     var log = bunyan.createLogger({
@@ -22,7 +22,7 @@ function twitterfinderApi() {
 
     app.use(compress());
 
-    app.set('port', (process.env.PORT || 3000));
+    app.set('port', port);
 
     //Create Twitter Client
     var Twitter = require("twitter-node-client").Twitter;

@@ -19,6 +19,6 @@ You need to install Node.js and then the development tools. Node.js comes with a
 ## Run
 
 1. `npm install`
-2. `npm start`
-3. `npm run webpack`
-4. Navigate to http://localhost:3000
+2. `npm start` - Runs express app
+3. `npm run webpack` - Runs Webpack to update bundle
+4. Navigate to http://localhost:8080
