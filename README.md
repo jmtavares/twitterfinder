@@ -1,4 +1,12 @@
-# twitterfinder-api
+# TwitterFinder
+
+## Description
+
+This project aims to search within your personal tweets.
+
+It uses ES6 both on server ([express](http://expressjs.com/)) and on client ([reactjs](https://facebook.github.io/react/)).
+
+It uses Webpack for as a module bundler.
 
 ## Dependencies
 
@@ -11,6 +19,6 @@ You need to install Node.js and then the development tools. Node.js comes with a
 ## Run
 
 1. `npm install`
-2. `npm run webpack`
-3. `node src/server.js`
+2. `npm start`
+3. `npm run webpack`
 4. Navigate to http://localhost:3000

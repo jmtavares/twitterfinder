@@ -3,9 +3,10 @@
 'use strict';
 
 function twitterfinderApi() {
-    var restify = require('restify');
+    var express = require('express');
     var appConfig = require('./config/config.json');
     var bunyan = require('bunyan');
+    var compress = require('compression');
     var port = process.env.PORT || 3000;
 
     //Initialize logger instance
@@ -17,18 +18,14 @@ function twitterfinderApi() {
         }]
     });
 
-    var server = restify.createServer({
-        log: log,
-        name: appConfig.name
-    });
+    var app = global.app = express();
 
-    server.use(restify.bodyParser());
-    server.use(restify.queryParser({mapParams: false}));
-    server.use(restify.gzipResponse());
+    app.use(compress());
 
-    //Create Twitter client
-    var Twitter = require('twitter-node-client').Twitter;
+    app.set('port', (process.env.PORT || 3000));
 
+    //Create Twitter Client
+    var Twitter = require("twitter-node-client").Twitter;
 
     var config = {
         'consumerKey': process.env.CONSUMERKEY || '',
@@ -42,33 +39,15 @@ function twitterfinderApi() {
     var twitter = new Twitter(config);
 
     //Create routes and controllers
-    require('./routes')(server, restify, twitter, appConfig, log);
+    require('./routes')(app, express, twitter, appConfig, log);
 
-    //Init server
-    server.listen(port, function (err) {
-        if (err) {
-            log.error(err);
-        } else {
-            log.info(appConfig.name + ' is ready at port: ' + port);
+    //Init app
+    app.listen(app.get('port'), () => {
+        log.info(appConfig.name + ' is ready at port: ' + port);
+        if (process.send) {
+            process.send('online');
         }
     });
-
-    function handleException(req, res, route, err) {
-        //Generic Middleware exception
-        if (res) {
-            res.status(500);
-            res.json({});
-            log.error('process.on', err);
-        } else {
-            //Boot Exception
-            log.error(err);
-        }
-    }
-
-    //Handle Exceptions
-    server.on('uncaughtException', handleException);
-    process.on('uncaughtException', handleException);
-
 
 }
 
