@@ -36,7 +36,7 @@ class Search extends React.Component {
             },
             success: function(data) {
                 this.setState({
-                    tweets: data
+                    tweets: data.filteredTweets
                 });
             }.bind(this),
             error: function(xhr, status, err) {

@@ -19,10 +19,12 @@ module.exports = function tweetsController(twitter, appConfig, log) {
                 },
                 function (data) {
                     var tweets = JSON.parse(data);
-                    var listTweets = [];
+                    var filteredTweets = [];
+                    var result;
+                    
                     tweets.forEach(function (obj) {
-                        if (obj.text.indexOf(req.body.query) !== -1) {
-                            listTweets.push({
+                        if (obj.text.toLowerCase().indexOf(req.body.query.toLowerCase()) !== -1) {
+                            filteredTweets.push({
                                 created_at: obj.created_at,
                                 id: obj.id,
                                 text: obj.text
@@ -30,8 +32,12 @@ module.exports = function tweetsController(twitter, appConfig, log) {
                         }
                     });
 
+                    result = {
+                        filteredTweets: filteredTweets
+                    };
+
                     res.status(200);
-                    res.json(listTweets);
+                    res.json(result);
                 });
         } else {
             res.status(400);

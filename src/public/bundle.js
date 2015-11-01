@@ -19812,7 +19812,7 @@
 	                },
 	                success: (function (data) {
 	                    this.setState({
-	                        tweets: data
+	                        tweets: data.filteredTweets
 	                    });
 	                }).bind(this),
 	                error: (function (xhr, status, err) {
@@ -19891,7 +19891,7 @@
 
 
 	// module
-	exports.push([module.id, "body {\n  margin: 0;\n}\n#app {\n  background-color: #55ACEE;\n  margin: 0 auto;\n  position: absolute;\n  height: 100%;\n  width: 100%;\n}\n.header {\n  text-align: center;\n  color: #fff;\n}\n.search {\n  text-align: center;\n  padding: 50px;\n}\n.search .search-container {\n  border: 1px solid #FFF;\n  padding: 50px;\n  border-radius: 10px;\n}\n", ""]);
+	exports.push([module.id, "body {\n  margin: 0;\n}\n#app {\n  background-color: #55ACEE;\n  margin: 0 auto;\n  position: absolute;\n  height: 100%;\n  width: 100%;\n}\n.header {\n  text-align: center;\n  color: #fff;\n}\n.search {\n  text-align: center;\n  padding: 50px;\n}\n.search .search-container {\n  border: 1px solid #FFF;\n  padding: 50px;\n  border-radius: 10px;\n}\n.search ul {\n  height: 300px;\n  overflow-y: scroll;\n}\n", ""]);
 
 	// exports
 
