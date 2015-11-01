@@ -7,6 +7,7 @@ function twitterfinderApi() {
     var appConfig = require('./config/config.json');
     var bunyan = require('bunyan');
     var compress = require('compression');
+    var bodyParser = require('body-parser');
     var port = process.env.PORT || 8080;
 
     //Initialize logger instance
@@ -21,6 +22,7 @@ function twitterfinderApi() {
     var app = global.app = express();
 
     app.use(compress());
+    app.use(bodyParser());
 
     app.set('port', port);
 

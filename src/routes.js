@@ -11,7 +11,7 @@ module.exports = function (app, express, twitter, appConfig, log) {
         tweetsController: new constructor(twitter, appConfig, log)
     };
 
-    app.get('/api/getTweets', controllers.tweetsController.getTweets.bind(controllers.tweetsController));
+    app.post('/api/getTweets', controllers.tweetsController.getTweets.bind(controllers.tweetsController));
 
     app.get('/', function (req, res) {
         res.sendFile(__dirname + '/index.html');

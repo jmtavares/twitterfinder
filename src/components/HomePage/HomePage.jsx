@@ -1,16 +1,20 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import Header from '../Header';
-import Footer from '../Footer';
+import Search from '../Search';
 
 require('../../styles/main.less');
 
 class HomePage extends React.Component {
     render() {
         return (
-            <div>
+            <div className="homepage">
                 <Header />
-                <Footer />
+                <div className="search">
+                    <div className="search-container">
+                        <Search />
+                    </div>
+                </div>
             </div>
         )
     }
